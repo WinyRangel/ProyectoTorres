@@ -1,0 +1,31 @@
+<div class="container">
+
+<!--Botones-->
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-warning"><a href="/administrar"> Por revisar </a></button>
+  <button type="button" class="btn btn-success"><a href="/validados">Aprobados</a></button>
+  <button type="button" class="btn btn-danger"><a href="/rechazados"> Rechazados</a></button>
+
+</div>
+
+
+</div>
+<div class="container pt-5">
+  <div class="row">
+    <div class="card text-bg-light w-75 mb-3" *ngFor="let publicacion of listPublicacion">
+      <div class="card-header">
+        {{ publicacion.usuario }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ publicacion.categoria }}</h5>
+        <p class="card-text">{{ publicacion.titulo }}</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <a [routerLink]="['/pantalla4/',publicacion._id]" class="btn btn-primary float-left">ver</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{ publicacion.fechaPub }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

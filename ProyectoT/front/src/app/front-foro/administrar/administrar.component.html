@@ -1,0 +1,53 @@
+<body id="cuerpo">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admnistrar">Revisar</a></li>
+            <li class="breadcrumb-item"><a href="/validados">Validados</a></li>
+            <li class="breadcrumb-item"><a href="/rechazados">Rechazados</a></li>
+        </ol>
+    </nav>
+    <div class="container">
+        <div class="accordion" id="accordionPanelsStayOpenExample" style="margin-top: 50px;">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" type="button" id="bar" data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne">
+                        Publicación #1
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingOne">
+                    <div class="accordion-body">
+                    </div>
+                    <div class="d-flex justify-content-center" id="info">
+                        <input id="user" type="text" readonly placeholder="{{publicacion.usuario}}">
+                        <input id="date" type="text" readonly placeholder="{{publicacion.fechaPub}}">
+                    </div>
+                    <div class="d-flex justify-content-center" id="info2">
+                        <input id="title" type="text" readonly placeholder="{{publicacion.titulo}}">
+                    </div><br>
+                    <div class="d-flex justify-content-center">
+                        <textarea name="codigo" id="txtCodigo" placeholder="Código" readonly>{{publicacion.contenido}}</textarea>
+                    </div><br><br>
+                
+                    <form [formGroup]="retroalimentarForm" (ngSubmit)="agregarRetroalim()">
+                        <div class="form-check form-switch d-flex justify-content-center" id="chValidar">
+                            <input class="form-check-input form-control" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="validado">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> Validar</label>
+                        </div><br>
+                        <div class="d-flex justify-content-center">
+                            <textarea id="txtRetroalim" class="form-control" placeholder="Retroalimentacion" formControlName="retroalim"></textarea>
+                        </div><br>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" [disabled]="retroalimentarForm.invalid" class="btn btn-outline-primary btn-lg">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<!--<div class="container">
+    
+</div>-->

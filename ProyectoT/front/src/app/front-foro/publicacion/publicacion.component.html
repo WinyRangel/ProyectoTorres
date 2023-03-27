@@ -1,0 +1,61 @@
+<body id="bg-secondary">
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="border-color: rgb(179, 255, 179); box-shadow: 0 0 20px #ff4;">
+          <div class="card-body" style="background-color: #a0fff4;">
+            <h5 class="card-title">Nueva Publicación</h5>
+            <form [formGroup]="publicacionForm" (ngSubmit)="agregarPublicacion()">
+              <div class="container mt-3 d-flex justify-content-center">
+                <input formControlName="titulo" type="text" placeholder="Escribir titulo" style="width: 800PX; height:30px">
+              </div>
+              <div class="container mt-3">
+                <select formControlName="categoria" class="form-select" aria-label="Default select example"   style="background-color: #aaf5c8; border-color: black; ">
+                  <option selected>Categoría</option>
+                  <option value="1">C#</option>
+                  <option value="2">SQL</option>
+                  <option value="3">MongoDB</option>
+                  <option value="4">JavaScript</option>
+                  <option value="5">Java</option>
+                  <option value="6">Python</option>
+                  <option value="7">C++</option>
+                 
+                </select>
+              </div>
+              <div class="container mt-3">
+                <div class="d-flex justify-content-center">
+                  <!--<input class="form-control me-2 text-center" type="date" placeholder="Codigo" aria-label="Search" style="height: 300px;">-->
+                  <textarea formControlName="contenido" name="Codigo" style="width: 800PX; height: 300px; background-color: #aaf5c8;" placeholder="Escribir código"></textarea>
+                </div>
+              </div>
+              <div class="container mt-3">
+                <button type="button" class="btn btn-success">Publicar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+  <div class="container pt-5">
+    <div class="row">
+      <div class="card text-bg-light w-75 mb-3" *ngFor="let publicacion of listPublicacion">
+        <div class="card-header">
+          <button (click)="eliminarPublicacion(publicacion._id)" class="btn btn-outline-danger btn-sm float-left">Eliminar</button>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ publicacion.categoria }}</h5>
+          <p class="card-text">{{ publicacion.titulo }}</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a [routerLink]="['/pantalla5/',publicacion._id]" class="btn btn-primary float-left">ver</a>
+          </div>
+          <div class="card-footer text-muted">
+            {{ publicacion.fechaPub }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

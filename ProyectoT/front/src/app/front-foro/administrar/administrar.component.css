@@ -1,0 +1,37 @@
+#txtCodigo{
+    width: 800px;
+    height: 300px;
+}
+
+#txtRetroalim{
+    width: 800px;
+    height: 100px;
+}
+
+#user{
+    width: 400px;
+}
+
+#date{
+    width: 400px;
+}
+
+#info{
+    padding-top: 50px;
+}
+
+#title{
+    width: 800px;
+}
+
+#btnEnviar{
+    padding-left: 300px;
+}
+
+body{
+    padding: 10px;
+}
+
+::placeholder{
+    color: black;
+}

@@ -1,0 +1,70 @@
+<body>
+  <div class="container pt-5">
+    <a [routerLink]="['/pantalla3']" class="waves-effect waves-light btn"><i class="material-icons left">chevron_left</i></a>
+          <div class="row">
+            <form >
+              <div class="card">
+                <div  class="card-header">
+                  {{ publicacion.usuario }}
+                </div>
+                <div class="card-body">
+                  <h5  class="card-title">Categoría: {{ publicacion.categoria }}</h5>
+                  <div class="d-flex justify-content-center" >
+                    <textarea  name="Codigo" style="width: 800PX; height: 300px;" readonly>{{ publicacion.contenido }}</textarea>
+                  </div>
+                </div>
+                <div class="card-footer text-muted">
+                  {{ publicacion.fechaPub }}
+                </div>
+              </div>
+            </form>
+            
+            <br>
+            <br>
+            <div class="d-flex justify-content-center" style="margin-top: 30px;" *ngFor="let comentario of listComentarios">
+              <textarea name="Codigo" style="width: 800PX; height: 60px;"></textarea>
+              <div class="card text-bg-light w-75 mb-3" >
+                <div class="card-header">{{ comentario.usuario }}</div>
+                <div class="card-body">
+                  <p class="card-text">{{ comentario.contenidoC }}</p>
+                  <div class="card-footer text-muted">
+                    {{ comentario.fechaPubC }}
+                    <div class="float-right">
+                      <a (click)="eliminarComen(comentario._id)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container pt-5">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                
+                  <form [formGroup]="comentarioForm" (ngSubmit)="addComentario()">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Agrega un comentario" aria-label="Recipient's username" aria-describedby="button-addon2" formControlName="contenidoC">
+                      <button type="submit" [disabled]="comentarioForm.invalid" class="btn btn-outline-secondary"  id="button-addon2">Comentar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/administrar">Revision</a></li>
+          <li class="breadcrumb-item"><a href="/validados">Aceptados</a></li>
+          <li class="breadcrumb-item"><a href="/rechazados">Denegados</a></li>
+          
+        </ol>
+      </nav>
+</div>
